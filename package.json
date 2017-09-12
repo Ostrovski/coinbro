@@ -1,0 +1,22 @@
+{
+  "name": "coinbro",
+  "version": "0.1.0",
+  "scripts": {
+    "clean": "rm -fr dist",
+    "grab": "node dist/bin/grab",
+    "watch": "tsc --allowJs -w -p ."
+  },
+  "dependencies": {
+    "lodash": "4.17.4",
+    "moment-timezone": "0.5.13",
+    "request": "2.81.0"
+  },
+  "devDependencies": {
+    "@types/lodash": "4.14.74",
+    "@types/moment-timezone": "0.2.35",
+    "@types/node": "8.0.27",
+    "@types/request": "2.0.3",
+    "tsc-watch": "1.0.7",
+    "typescript": "2.5.2"
+  }
+}
