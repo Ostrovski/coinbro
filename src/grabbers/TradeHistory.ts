@@ -46,7 +46,7 @@ export default class TradeHistory extends PassThrough {
                 this.emit('error', err);
                 this.push(null);  // 0 tolerance
             })
-            .once('finish', () => {
+            .once('end', () => {
                 const elapsed = Date.now() - beginAt;
                 this.emit('chunk', {
                     period,
