@@ -1,7 +1,7 @@
 import { createWriteStream } from 'fs';
 import * as moment from 'moment-timezone';
 import * as request from 'request';
-import TradeHistory from '../src/grabbers/TradeHistory';
+import TradeHistory from '../src/TradeHistory';
 
 const pair = process.argv[2].toUpperCase();
 const start = moment(process.argv[3]);

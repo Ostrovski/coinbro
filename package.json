@@ -1,9 +1,36 @@
 {
-  "name": "coinbro",
-  "version": "0.1.0",
+  "name": "poloniex-trade-history",
+  "description": "Poloniex stock exchange trade history reader/grabber",
+  "keywords": [
+    "poloniex",
+    "bitcoin",
+    "btc",
+    "etherium",
+    "eth",
+    "altcoins",
+    "cryptocurrency",
+    "blockchain"
+  ],
+  "author": "Ivan Velichko <iximiuz@gmail.com>",
+  "version": "0.2.0",
+  "homepage": "https://github.com/Ostrovski/poloniex-trade-history#readme",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Ostrovski/poloniex-trade-history.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Ostrovski/poloniex-trade-history/issues"
+  },
+  "license": "MIT",
+  "main": "dist/src/index.js",
+  "bin": {
+    "poloniex-trade-history": "dist/bin/run.js"
+  },
+  "typings": "dist/src/index.d.ts",
   "scripts": {
     "clean": "rm -fr dist",
-    "grab": "node dist/bin/grab",
+    "run": "node dist/bin/run.js",
+    "test": "tap dist/test/*.test.js",
     "watch": "tsc --allowJs -w -p ."
   },
   "dependencies": {
