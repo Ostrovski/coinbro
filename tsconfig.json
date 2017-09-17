@@ -18,7 +18,9 @@
     "bin/**/*.js",
     "bin/**/*.ts",
     "src/**/*.js",
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "tests/**/*.js",
+    "tests/**/*.ts"
   ],
   "exclude": [
     "node_modules"

@@ -1,0 +1,8 @@
+[
+  {"globalTradeID":232868794,"tradeID":34339850,"date":"2017-09-15 00:00:01","type":"sell","rate":"0.06869139","amount":"1.02055207","total":"0.07010314"},
+  {"globalTradeID":232868793,"tradeID":34339849,"date":"2017-09-01 00:00:01","type":"sell","rate":"0.06869140","amount":"0.00145593","total":"0.00010000"},
+  {"globalTradeID":232868788,"tradeID":34339848,"date":"2017-07-15 00:00:01","type":"buy","rate":"0.06878128","amount":"1.92884400","total":"0.13266835"},
+  {"globalTradeID":232868786,"tradeID":34339847,"date":"2017-07-01 00:00:01","type":"buy","rate":"0.06878128","amount":"0.71977433","total":"0.04950699"},
+  {"globalTradeID":232868702,"tradeID":34339846,"date":"2016-05-15 00:00:01","type":"sell","rate":"0.06869128","amount":"0.00020526","total":"0.00001409"},
+  {"globalTradeID":232868683,"tradeID":34339845,"date":"2016-05-01 00:00:01","type":"sell","rate":"0.06861760","amount":"0.14648744","total":"0.01005161"}
+]

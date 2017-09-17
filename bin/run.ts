@@ -1,27 +1,40 @@
-import { createWriteStream } from 'fs';
-import * as moment from 'moment-timezone';
-import * as request from 'request';
-import TradeHistory from '../src/TradeHistory';
+import {createWriteStream} from 'fs';
+import {createReadStream as createHistoryReader} from '../src';
 
-const pair = process.argv[2].toUpperCase();
-const start = moment(process.argv[3]);
-const end = moment(process.argv[4]) || moment.utc();
+function usage(err: string = '') {
+    if (err) {
+        console.log(err);
+        console.log();
+    }
+    console.log('USAGE: poloniex-trade-history [-f <file>] <currency_pair> <start> [end]');
+}
 
-console.log(`grab pair=${pair} start=${start.toISOString()} end=${end.toISOString()}`);
+const args = process.argv.slice(2);
+const flagIdx = args.indexOf('-f');
+let filename = '';
+if (flagIdx !== -1) {
+    filename = args[flagIdx + 1];
+    if (!filename) {
+        usage('Path to file should be specified after -f option');
+        process.exit(-1);
+    }
+    args.splice(flagIdx, 2);
+}
 
-(request as any).debug = true;
+const pair = args[0].toUpperCase();
+const start = +new Date(args[1]);
+const end = +new Date(args[2]);
 
-const reader = new TradeHistory(pair, start.toISOString(), end.toISOString());
+const reader = createHistoryReader(pair, start, end);
 reader.on('error', (err) => {
-    console.log('on.error', err);
-});
-reader.on('chunk', (stat) => {
-    console.log('on.chunk', stat);
-});
-reader.on('end', () => {
-    console.log('on.end: finita la comedia');
-    setTimeout(() => {}, 2500);
+    process.stderr.write(`Error: ${err}`);
 });
 
-reader.pipe(createWriteStream(`out_${start.unix()}-${end.unix()}.json`));
-//reader.pipe(process.stdout);
+if (filename) {
+    reader
+        .on('chunk', chunk => console.log('fetched', chunk))
+        .pipe(createWriteStream(filename))
+        .on('finish', () => console.log('done!'));
+} else {
+    reader.pipe(process.stdout);
+}
